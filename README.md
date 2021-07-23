@@ -15,4 +15,7 @@ dockerfile-recover <image name>
 For example
 ```
 dockerfile-recover python
+dockerfile-recover django
+dockerfile-recover redis
+dockerfile-recover node
 ```
