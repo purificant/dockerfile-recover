@@ -1,0 +1,43 @@
+[tool.poetry]
+name = "dockerfile-recover"
+version = "0.0.1-alpha1"
+description = "dockerfile-recover is a tool to reconstruct Dockerfile by reverse engineering a docker image"
+authors = []
+license = "MIT"
+packages = [{ include = "dockerfile_recover" }]
+readme = "README.md"
+homepage = "https://github.com/purificant/dockerfile-recover"
+repository = "https://github.com/purificant/dockerfile-recover"
+documentation = "https://github.com/purificant/dockerfile-recover"
+keywords = ["docker", "dockerfile", "recover", "reverse", "engineer"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Utilities",
+    "Development Status :: 3 - Alpha",
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+docker = "^5.0.0"
+six = "^1.16.0"
+click = "^8.0.1"
+
+[tool.poetry.dev-dependencies]
+black = "^21.7b0"
+pytest = "^6.2.4"
+isort = "^5.9.2"
+mypy = "^0.910"
+pylint = "^2.9.5"
+coverage = "^5.5"
+
+[tool.poetry.scripts]
+dockerfile-recover = "dockerfile_recover.__main__:main"
+
+[tool.isort]
+profile = "black"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
