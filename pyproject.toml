@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "dockerfile-recover"
-version = "0.0.1-alpha1"
+version = "0.0.1-alpha2"
 description = "dockerfile-recover is a tool to reconstruct Dockerfile by reverse engineering a docker image"
 authors = []
 license = "MIT"
