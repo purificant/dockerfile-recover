@@ -19,3 +19,8 @@ dockerfile-recover django
 dockerfile-recover redis
 dockerfile-recover node
 ```
+
+or run as python module
+```
+python -m dockerfile_recover nginx
+```
