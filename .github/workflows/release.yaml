@@ -17,5 +17,5 @@ jobs:
       - name: Install poetry
         run: make get-poetry
 
-      - name: Install dependencies
-        run: poetry build
+      - name: Publish package
+        run: poetry publish --build --username ${{ secrets.PYPI_USERNAME }} --password ${{ secrets.PIPY_PASSWORD }}
