@@ -17,7 +17,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: latest
+          tags: purificant/dockerfile-recover:latest
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
