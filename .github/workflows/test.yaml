@@ -1,0 +1,35 @@
+name: test-workflow
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  test:
+    name: Python ${{ matrix.python-version }} on ${{ matrix.os }}
+    strategy:
+      matrix:
+        python-version: [3.9]
+        os: [ubuntu-latest]
+      fail-fast: false
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        id: restore-cache
+        with:
+          path: ${{ env.pythonLocation }}
+          key: python-dependencies-${{ matrix.os }}-${{ matrix.python-version }}-${{ hashFiles('requirements-dev.txt') }}-${{ env.pythonLocation }}
+      
+      - name: Install dependencies on cache miss
+        run: pip install --requirement requirements-dev.txt
+        if: steps.restore-cache.outputs.cache-hit != 'true'
+
+      - name: Run pytest
+        run: python -m pytest
+        shell: bash
