@@ -32,4 +32,3 @@ jobs:
 
       - name: Run pytest
         run: python -m pytest
-        shell: bash
