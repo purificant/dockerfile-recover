@@ -11,7 +11,7 @@ def parse_history(history: list) -> list:
 
 
 def parse_history_created_by(created_by: str):
-    """Parse 'CreatedBy' part of docker history and return comman that ran for that layer."""
+    """Parse 'CreatedBy' part of docker history and return command ran for that layer."""
 
     # current assumption is that all docker commands run shell, which can be NOP
     if not is_shell(created_by):
