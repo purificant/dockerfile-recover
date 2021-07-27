@@ -16,25 +16,23 @@ docker pull purificant/dockerfile-recover
 
 ## When installing with pip
 ```
-docker pull <the image you want to reverse engineer>
-dockerfile-recover <image name>
+dockerfile-recover recover IMAGE_NAME
 ```
-For example
+Optionally `--pull` the image, for example:
 ```
-dockerfile-recover python
-dockerfile-recover django
-dockerfile-recover redis
-dockerfile-recover node
+dockerfile-recover recover --pull python
+dockerfile-recover recover --pull django
+dockerfile-recover recover --pull redis
+dockerfile-recover recover --pull node
 ```
 
 or run as python module
 ```
-python -m dockerfile_recover nginx
+python -m dockerfile_recover recover --pull nginx
 ```
 
 ## When running in a container
 
 ```
-docker pull <the image you want to reverse engineer>
-docker run -it -v /var/run/docker.sock:/var/run/docker.sock purificant/dockerfile-recover python -m dockerfile_recover <image name>
+docker run -it -v /var/run/docker.sock:/var/run/docker.sock purificant/dockerfile-recover python -m dockerfile_recover recover IMAGE_NAME
 ```
